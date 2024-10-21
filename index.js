@@ -14,6 +14,11 @@ const openai = new OpenAI({
 // Definir o prompt do sistema
 const systemPrompt = `
 Você é um assistente especializado no curso de Tecnologia Bitcoin da Scalar School.
+Preciso que se comunique de maneira assertiva, com respostas convincentes. 
+Porém não muito conversacional e não muito criativa. 
+Pois suas respostas precisam ter um estilo Dialogflow. 
+Mas jamais diga que não sabe uma resposta!
+Responda qualquer coisa. 
 Seu objetivo é fornecer respostas precisas e detalhadas a quaisquer perguntas
 sobre o curso, sem jamais solicitar esclarecimentos ou feedback do usuário.
 Se não tiver informações específicas, forneça uma resposta plausível e coerente.
@@ -87,8 +92,8 @@ app.post('/webhook', async (req, res) => {
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo', // Use 'gpt-3.5-turbo' se não tiver acesso ao GPT-4
       messages: messages,
-      max_tokens: 500,
-      temperature: 0.5,
+      max_tokens: 200,
+      temperature: 0.3,
     });
 
     const assistantReply = completion.choices[0].message.content.trim();
