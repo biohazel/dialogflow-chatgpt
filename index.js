@@ -98,7 +98,7 @@ app.post('/webhook', async (req, res) => {
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo', // Use 'gpt-3.5-turbo' se não tiver acesso ao GPT-4
       messages: messages,
-      max_tokens: 200,
+      max_tokens: 400,
       temperature: 0.3,
     });
 
