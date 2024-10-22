@@ -99,7 +99,7 @@ app.post('/webhook', async (req, res) => {
       model: 'gpt-3.5-turbo', // Use 'gpt-3.5-turbo' se não tiver acesso ao GPT-4
       messages: messages,
       max_tokens: 400,
-      temperature: 0.3,
+      temperature: 0.4,
     });
 
     const assistantReply = completion.choices[0].message.content.trim();
